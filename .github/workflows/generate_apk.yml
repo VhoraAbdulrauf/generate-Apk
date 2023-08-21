@@ -20,10 +20,6 @@ jobs:
       - name: Read a variable from environment
         run: echo "MY API_URL values is ${{ env.API_URL }} && ${{ env.API_TOKEN }}"
 
-      - name: Display Environment Variables
-        run: |
-          echo "API Token: $API_TOKEN"
-          echo "API URL: $API_URL"
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
