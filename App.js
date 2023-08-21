@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 
-import {API_URL, API_TOKEN} from '@env';
+import {BASE_URL, API_TOKEN} from '@config';
 const App = () => {
   return (
     <SafeAreaView
@@ -37,7 +37,7 @@ const App = () => {
             color: 'red',
             marginVertical: 10,
           }}>
-          API_URL ::{API_URL}
+          BASE_URL ::{BASE_URL}
         </Text>
 
         <Text
