@@ -36,7 +36,7 @@ jobs:
         run: cd android && ./gradlew app:assembleRelease
         env:
           API_URL: ${{ vars.API_URL }}
-          API_TOKEN: ${{ vars.API_TOKEN }}
+          # API_TOKEN: ${{ vars.API_TOKEN }}
 
       - name: Upload release APK
         uses: actions/upload-artifact@v2
