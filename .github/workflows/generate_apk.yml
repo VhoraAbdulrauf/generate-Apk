@@ -44,4 +44,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: awesome-app.apk
-          path: android/app/build/outputs/apk/release/app-release.apk
+          path: android/app/build/outputs/apk/release/awesomeApp.apk
