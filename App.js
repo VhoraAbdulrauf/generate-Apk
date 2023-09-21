@@ -1,57 +1,27 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
-import {BASE_URL, API_TOKEN} from '@config';
+import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
+import {DemoScreen} from 'screens';
+// Initialize Apollo Client
+const client = new ApolloClient({
+  uri: 'https://countries.trevorblades.com/graphql',
+  cache: new InMemoryCache(),
+});
+
 const App = () => {
   return (
-    <SafeAreaView
-      style={{
-        flexGrow: 1,
-      }}>
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          flex: 1,
-        }}>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: '700',
-          }}>
-          APK GENERATE FROM GITHUB ACTION
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            fontWeight: '700',
-            marginVertical: 10,
-            textDecorationLine: 'underline',
-          }}>
-          VALUE FROM .ENV FILE
-        </Text>
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: '500',
-            color: 'red',
-            marginVertical: 10,
-          }}>
-          BASE_URL ::{BASE_URL}
-        </Text>
-
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: '500',
-            color: 'red',
-            marginVertical: 10,
-          }}>
-          API_TOKEN ::{API_TOKEN}
-        </Text>
-      </View>
+    <SafeAreaView style={styles.container}>
+      <ApolloProvider client={client}>
+        <DemoScreen />
+      </ApolloProvider>
     </SafeAreaView>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+});
 
 export default App;
